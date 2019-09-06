@@ -9,7 +9,6 @@
     align-items: center;
     margin-top: 10vh;
     height: 80%;
-    
 }
 
 section img {
@@ -30,4 +29,8 @@ form button {
     border-radius: 8px;
     color: white;
     background: #AB2A19
+}
+
+section h2 {
+    color: black;
 }

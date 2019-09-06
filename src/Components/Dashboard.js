@@ -10,10 +10,7 @@ export default class Dashboard extends Component {
     constructor(){
         super();
         this.state = {
-            products: [],
-            product_name: "",
-            product_price: "",
-            image_url: ""
+            products: []
         }
         this.deleteProduct = this.deleteProduct.bind(this)
     }
@@ -29,11 +26,12 @@ export default class Dashboard extends Component {
         })
     }
 
-    deleteProduct(id) {
+    deleteProduct(index) {
         axios
-        .delete(`api/products/${id}`)
+        .delete(`api/products/${index}`)
         .then(response => {
             this.setState({products: response.data})
+            console.log(response.data)
         })
         .catch(err => {
             console.log(err)
@@ -41,18 +39,17 @@ export default class Dashboard extends Component {
     }
 
     render() {
-        console.log(this.state.products)
         const {products} = this.state
         return(
             <div className='dashboard-main'>
                 <h1>Dashboard</h1>
-                {products ? products.map((products, id) => (
+                {products ? products.map((products, index) => (
                     <Product 
                         deleteProduct={this.deleteProduct}
                         name={products.product_name}
                         price={products.product_price}
                         image={products.image_url}
-                        id={id}
+                        index={index}
                     />
                 )): <p>Loading</p>}
             </div>

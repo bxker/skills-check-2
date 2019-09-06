@@ -17,14 +17,30 @@ let deleteProduct = (req, res) => {
     const {id} = req.params;
 
     dbInstance.deleteProduct(id)
-    .then(products => res.status(200).json(products))
+    .then(product => {
+        res.status(200).json(product)
+        console.log(product)
+    })
     .catch(err => {
         res.status(500).send({errorMessage: 'Something went wrong -500'})
         console.log(err)
     })
 }
 
+let saveItem = (req, res) => {
+    const dbInstance = req.app.get('db');
+    const {product_name, product_price, image_url} = req.body;
+
+    dbInstance.saveItem(product_name, product_price, image_url)
+    .then( () => res.sendStatus(200))
+    .catch (err => {
+        res.status(500).send({errorMessage: 'Something went wrong - 500'})
+        console.log(err)
+    })
+}
+
 module.exports = {
     getAll,
-    deleteProduct
+    deleteProduct,
+    saveItem
 }

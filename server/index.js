@@ -7,7 +7,7 @@ require('dotenv').config();
 const {SERVER_PORT, CONNECTION_STRING} = process.env;
 
 //requiring functions
-const {getAll, deleteProduct} = require('./controllers/productsController')
+const {getAll, deleteProduct, saveItem} = require('./controllers/productsController')
 
 massive(CONNECTION_STRING)
 .then(dbInstance => {
@@ -24,6 +24,8 @@ app.use(express.json());
 app.get('/api/products', getAll);
 //deletes specific product
 app.delete('/api/products/:id', deleteProduct)
+//adds 
+app.post('/api/products', saveItem)
 
 
 app.listen(SERVER_PORT, () => console.log(`Server running on port ${SERVER_PORT}`));

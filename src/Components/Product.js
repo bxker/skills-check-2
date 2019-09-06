@@ -4,18 +4,19 @@ import './css/Product.css';
 //components
 
 
-export default function Product(props) {
+export default class Product extends Component {
+    render(){
         return(
             <div className="product-main">
                 <section className="product-box">
-                    <img src={props.image} ></img>
+                    <img src={this.props.image} ></img>
                     <div className="product-info">
                         <section>
-                            <h2>Name: {props.name}</h2>
-                            <h2>Price: {props.price}</h2>
+                            <h2>Name: {this.props.name}</h2>
+                            <h2>Price: {this.props.price}</h2>
                         </section>
                         <section className="product-buttons">
-                            <button onClick={() => props.deleteProduct(props.id)}>Delete</button>
+                            <button onClick={() => this.props.deleteProduct(this.props.index)}>Delete</button>
                             <button>Edit</button>
                         </section>
                     </div>
@@ -23,3 +24,4 @@ export default function Product(props) {
             </div>
         )
     }
+}
