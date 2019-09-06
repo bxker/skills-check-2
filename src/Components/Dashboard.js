@@ -45,6 +45,7 @@ export default class Dashboard extends Component {
                 <h1>Dashboard</h1>
                 {products ? products.map((products, index) => (
                     <Product 
+                        products={this.products}
                         deleteProduct={this.deleteProduct}
                         name={products.product_name}
                         price={products.product_price}

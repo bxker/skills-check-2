@@ -39,8 +39,22 @@ let saveItem = (req, res) => {
     })
 }
 
+let editProduct = (req, res) => {
+    const dbInstance = req.app.get('db')
+    const {params} = req.params;
+    const {product_name, product_price, image_url} = req.body;
+
+    dbInstance.editProduct(product_name, product_price, image_url, params.id)
+    .then(() => res.sendStatus(200))
+    .catch(err => {
+        res.status(500).send({errorMessage: 'Something went wrong - 500'})
+        console.log(err)
+    })
+}
+
 module.exports = {
     getAll,
     deleteProduct,
-    saveItem
+    saveItem,
+    editProduct
 }

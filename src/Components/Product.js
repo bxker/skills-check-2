@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import './css/Product.css';
 
 //components
@@ -17,7 +18,7 @@ export default class Product extends Component {
                         </section>
                         <section className="product-buttons">
                             <button onClick={() => this.props.deleteProduct(this.props.index)}>Delete</button>
-                            <button>Edit</button>
+                           <Link to='/edititem' ><button>Edit</button></Link> 
                         </section>
                     </div>
                 </section>
