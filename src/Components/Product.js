@@ -1,22 +1,21 @@
 import React, {Component} from 'react';
-import './css/Product.css'
+import './css/Product.css';
 
 //components
 
 
-export default class Product extends Component {
-    render() {
+export default function Product(props) {
         return(
             <div className="product-main">
                 <section className="product-box">
-                    <img src="https://via.placeholder.com/300/09f/fff.png"></img>
+                    <img src={props.image} ></img>
                     <div className="product-info">
                         <section>
-                            <h2>Product Name</h2>
-                            <h2>Price $</h2>
+                            <h2>Name: {props.name}</h2>
+                            <h2>Price: {props.price}</h2>
                         </section>
                         <section className="product-buttons">
-                            <button>Delete</button>
+                            <button onClick={() => props.deleteProduct(props.id)}>Delete</button>
                             <button>Edit</button>
                         </section>
                     </div>
@@ -24,4 +23,3 @@ export default class Product extends Component {
             </div>
         )
     }
-}
