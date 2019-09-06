@@ -1,0 +1,28 @@
+.header-container {
+    width: 100vw;
+    height: 10vh;
+    background: #AB2A19;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-container > h1 {
+    margin-left: 10vw;
+    font-size: 2rem;
+}
+
+.header-container ul {
+    width: 30vw;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.header-container button {
+    border: none;
+    height: 4vh;
+    width: 8vw;
+    cursor: pointer;
+    border-radius: 12px;
+}

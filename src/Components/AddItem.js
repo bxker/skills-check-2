@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
 
 //components
+//import form
+import Form from './Form'
 
 
 export default class AddItem extends Component {
     render() {
         return(
-            <h1>AddItem</h1>
+            <>
+                <Form/>
+            </>
         )
     }
 }

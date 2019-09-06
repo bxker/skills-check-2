@@ -1,0 +1,33 @@
+.form-main {
+    width: 100vw;
+    height: 70vh;
+}
+
+.form-main section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vh;
+    height: 80%;
+    
+}
+
+section img {
+    max-width: 55%;
+}
+
+form {
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 60%;
+}
+
+form button {
+    height: 10%;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background: #AB2A19
+}

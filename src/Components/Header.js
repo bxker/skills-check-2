@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import './css/Header.css'
 
 //components
 
@@ -7,13 +8,13 @@ import {Link} from 'react-router-dom';
 export default class Header extends Component {
     render() {
         return(
-            <>
-                <h1>Header</h1>
+            <div className="header-container">
+                <h1>SHELFIE</h1>
                 <ul>
-                    <Link to="/"><li>Dashboard</li></Link>
-                    <Link to="/additem"><li>Add Item</li></Link>
+                    <Link to="/"><button>Dashboard</button></Link>
+                    <Link to="/additem"><button>Add Item</button></Link>
                 </ul>
-            </>
+            </div>
         )
     }
 }
