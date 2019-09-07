@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import './css/Edit.css'
+// import Form from './Form';
 
 //components
 
@@ -17,16 +18,30 @@ export default class EditItem extends Component {
         this.handleChange2 = this.handleChange2.bind(this)
         this.editItem = this.editItem.bind(this)
     }
-    
+
+    componentDidMount(){
+        axios
+        .get('/api/products')
+        .then(response => {
+            this.setState({
+                products: response.data
+            })
+        })
+        .catch(err => {
+            console.log(err)
+        })
+        
+    }
+
     handleChange2(e) {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
 
-    editItem(index) {
+    editItem(id) {
         axios
-        .put(`/api/products/${index}`, {
+        .put(`/api/products/${id}`, {
             product_name: this.state.product_name,
             product_price: this.state.product_price,
             image_url: this.state.image_url

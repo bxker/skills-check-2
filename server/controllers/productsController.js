@@ -2,7 +2,8 @@
 let getAll = (req, res) => {
     const dbInstance = req.app.get('db');
 
-    dbInstance.readProducts()
+    dbInstance
+    .readProducts()
     .then(products => {
         res.status(200).json(products)
     })
@@ -41,7 +42,7 @@ let saveItem = (req, res) => {
 
 let editProduct = (req, res) => {
     const dbInstance = req.app.get('db')
-    const {params} = req.params;
+    const {params} = req;
     const {product_name, product_price, image_url} = req.body;
 
     dbInstance.editProduct(product_name, product_price, image_url, params.id)
