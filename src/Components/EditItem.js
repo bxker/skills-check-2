@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import './css/Edit.css'
-// import Form from './Form';
+import './css/Edit.css';
 
 //components
 

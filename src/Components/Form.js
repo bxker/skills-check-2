@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import './css/Form.css'
 
 //components
@@ -19,7 +20,7 @@ export default class Form extends Component {
                         <h2>Price:</h2>
                         <input type="text" onChange={handleChange} value={product_price} name='product_price'></input>
                         <button>Cancel</button>
-                        <button onClick={saveItem}>Save Changes</button>
+                        <button onClick={saveItem}><Link to="/">Save Changes</Link></button>
                     </div>
                 </section>
             </div>
