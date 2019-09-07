@@ -17,8 +17,8 @@ export default class Product extends Component {
                             <h2>Price: {this.props.price}</h2>
                         </section>
                         <section className="product-buttons">
-                            <button onClick={() => this.props.deleteProduct(this.props.index)}>Delete</button>
-                           <Link to='/edititem' ><button>Edit</button></Link> 
+                            <button onClick={() => this.props.deleteProduct(this.props.id)}>Delete</button>
+                            <Link to='/edititem' ><button>Edit</button></Link> 
                         </section>
                     </div>
                 </section>

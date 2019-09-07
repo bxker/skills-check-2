@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import './css/Dashboard.css'
 
@@ -7,7 +7,7 @@ import Product from './Product'
 
 
 export default class Dashboard extends Component {
-    constructor(){
+    constructor() {
         super();
         this.state = {
             products: []
@@ -17,42 +17,46 @@ export default class Dashboard extends Component {
 
     componentDidMount() {
         axios
-        .get('/api/products')
-        .then(response => {
-            this.setState({products: response.data})
-        })
-        .catch(err => {
-            console.log(err)
-        })
+            .get('/api/products')
+            .then(response => {
+                this.setState({ products: response.data })
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
-    deleteProduct(index) {
+    deleteProduct(id) {
         axios
-        .delete(`api/products/${index}`)
-        .then(response => {
-            this.setState({products: response.data})
-            console.log(response.data)
-        })
-        .catch(err => {
-            console.log(err)
-        })
+            .delete(`/api/products/${id}`);
+        axios
+            .get('/api/products')
+            .then(response => {
+                this.setState({
+                    products: response.data
+                })
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     render() {
-        const {products} = this.state
-        return(
+        const { products } = this.state
+        return (
             <div className='dashboard-main'>
                 <h1>Dashboard</h1>
-                {products ? products.map((products, index) => (
-                    <Product 
+                {products ? products.map((item) => (
+                    <Product
                         products={this.products}
                         deleteProduct={this.deleteProduct}
-                        name={products.product_name}
-                        price={products.product_price}
-                        image={products.image_url}
-                        index={index}
+                        name={item.product_name}
+                        price={item.product_price}
+                        image={item.image_url}
+                        id={item.id}
+                        key={item.id}
                     />
-                )): <p>Loading</p>}
+                )) : <p>Loading</p>}
             </div>
         )
     }
