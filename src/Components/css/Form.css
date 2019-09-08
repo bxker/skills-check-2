@@ -7,8 +7,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10vh;
     height: 80%;
+}
+
+.form-main h1 {
+    text-align: center;
+    padding: 30px;
+    font-size: 3rem;
 }
 
 section img {

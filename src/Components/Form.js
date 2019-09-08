@@ -10,8 +10,9 @@ export default class Form extends Component {
         const {handleChange, product_price, product_name, image_url, saveItem} = this.props;
         return(
             <div className='form-main'>
+                <h1>Add Item</h1>
                 <section>
-                    <img src="https://via.placeholder.com/300/09f/fff.png"></img>
+                    <img src={image_url}></img>
                     <div>
                         <h2>Image URL:</h2>
                         <input type="text" onChange={handleChange} value={image_url} name='image_url'></input>

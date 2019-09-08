@@ -55,8 +55,9 @@ export default class EditItem extends Component {
     render() {
         return(
             <div className='edit-main'>
+                <h1>Edit Item</h1>
                 <section>
-                    <img src="https://via.placeholder.com/300/09f/fff.png"></img>
+                    <img src={this.state.image_url}></img>
                     <div>
                         <h2>Image URL:</h2>
                         <input type="text" onChange={this.handleChange2} value={this.state.image_url} name='image_url'></input>
@@ -65,7 +66,7 @@ export default class EditItem extends Component {
                         <h2>Price:</h2>
                         <input type="text" onChange={this.handleChange2} value={this.state.product_price} name='product_price'></input>
                         <button>Cancel</button>
-                        <button onClick>Save Changes</button>
+                        <button onClick={() => this.editItem(this.props.id)}>Save Changes</button>
                     </div>
                 </section>
             </div>
