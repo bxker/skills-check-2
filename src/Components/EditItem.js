@@ -16,21 +16,8 @@ export default class EditItem extends Component {
         }
         this.handleChange2 = this.handleChange2.bind(this)
         this.editItem = this.editItem.bind(this)
+        this.cancelButton = this.cancelButton.bind(this)
     }
-
-    // componentDidMount(){
-    //     axios
-    //     .get(`/api/products/`)
-    //     .then(response => {
-    //         this.setState({
-    //             products: response.data
-    //         })
-    //     })
-    //     .catch(err => {
-    //         console.log(err)
-    //     })
-        
-    // }
 
     handleChange2(e) {
         console.log(e.target.value)
@@ -53,7 +40,13 @@ export default class EditItem extends Component {
         })
     }
 
-    
+    cancelButton() {
+        this.setState({
+            product_name: "",
+            product_price: 0,
+            image_url: ""
+        })
+    }
 
     render() {
         return(
@@ -68,7 +61,7 @@ export default class EditItem extends Component {
                         <input type="text" onChange={this.handleChange2} value={this.state.product_name} name='product_name'></input>
                         <h2>Price:</h2>
                         <input type="text" onChange={this.handleChange2} value={this.state.product_price} name='product_price'></input>
-                        <button>Cancel</button>
+                        <button onClick={this.cancelButton}>Cancel</button>
                         <button onClick={this.editItem}>Save Changes</button>
                     </div>
                 </section>

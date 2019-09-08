@@ -7,7 +7,7 @@ import './css/Form.css'
 
 export default class Form extends Component {
     render() {
-        const {handleChange, product_price, product_name, image_url, saveItem} = this.props;
+        const {handleChange, product_price, product_name, image_url, saveItem, cancelButton} = this.props;
         return(
             <div className='form-main'>
                 <h1>Add Item</h1>
@@ -20,7 +20,7 @@ export default class Form extends Component {
                         <input type="text" onChange={handleChange} value={product_name} name='product_name'></input>
                         <h2>Price:</h2>
                         <input type="text" onChange={handleChange} value={product_price} name='product_price'></input>
-                        <button>Cancel</button>
+                        <button onClick={cancelButton}>Cancel</button>
                         <button onClick={saveItem}><Link to="/">Save Changes</Link></button>
                     </div>
                 </section>

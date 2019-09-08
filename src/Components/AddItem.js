@@ -17,6 +17,7 @@ export default class AddItem extends Component {
         }
         this.handleChange = this.handleChange.bind(this)
         this.saveItem = this.saveItem.bind(this)
+        this.cancelButton = this.cancelButton.bind(this)
     }
 
     handleChange(e) {
@@ -39,12 +40,22 @@ export default class AddItem extends Component {
         })
     }
 
+    cancelButton() {
+        this.setState({
+            product_name: "",
+            product_price: 0,
+            image_url: ""
+
+        })
+    }
+
     render() {
         return(
             <>
                 <Form 
                 saveItem={this.saveItem}
                 handleChange={this.handleChange} 
+                cancelButton={this.cancelButton}
                 product_name={this.state.product_name}
                 product_price={this.state.product_price}
                 image_url={this.state.image_url}
