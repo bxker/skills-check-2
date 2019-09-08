@@ -33,7 +33,9 @@ let saveItem = (req, res) => {
     const {product_name, product_price, image_url} = req.body;
 
     dbInstance.saveItem(product_name, product_price, image_url)
-    .then( () => res.sendStatus(200))
+    .then( () => {
+        res.sendStatus(200);
+    })
     .catch (err => {
         res.status(500).send({errorMessage: 'Something went wrong - 500'})
         console.log(err)

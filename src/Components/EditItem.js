@@ -65,7 +65,7 @@ export default class EditItem extends Component {
                         <h2>Price:</h2>
                         <input type="text" onChange={this.handleChange2} value={this.state.product_price} name='product_price'></input>
                         <button>Cancel</button>
-                        <button>Save Changes</button>
+                        <button onClick>Save Changes</button>
                     </div>
                 </section>
             </div>
