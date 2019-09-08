@@ -7,6 +7,7 @@ import './css/Product.css';
 
 export default class Product extends Component {
     render(){
+        
         return(
             <div className="product-main">
                 <section className="product-box">
@@ -18,7 +19,12 @@ export default class Product extends Component {
                         </section>
                         <section className="product-buttons">
                             <button onClick={() => this.props.deleteProduct(this.props.id)}>Delete</button>
-                            <Link to={`/edititem/${this.props.id}`}><button>Edit</button></Link> 
+                            <Link to={{
+                                pathname: `/edititem/${this.props.id}`,
+                                state: {
+                                    id: this.props.id
+                                }
+                            }}><button>Edit</button></Link> 
                         </section>
                     </div>
                 </section>

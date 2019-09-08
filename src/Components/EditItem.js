@@ -18,29 +18,30 @@ export default class EditItem extends Component {
         this.editItem = this.editItem.bind(this)
     }
 
-    componentDidMount(){
-        axios
-        .get('/api/products')
-        .then(response => {
-            this.setState({
-                products: response.data
-            })
-        })
-        .catch(err => {
-            console.log(err)
-        })
+    // componentDidMount(){
+    //     axios
+    //     .get(`/api/products/`)
+    //     .then(response => {
+    //         this.setState({
+    //             products: response.data
+    //         })
+    //     })
+    //     .catch(err => {
+    //         console.log(err)
+    //     })
         
-    }
+    // }
 
     handleChange2(e) {
+        console.log(e.target.value)
         this.setState({
             [e.target.name]: e.target.value
         })
     }
 
-    editItem(id) {
+    editItem() {
         axios
-        .put(`/api/products/${id}`, {
+        .put(`/api/products/${this.props.location.state.id}`, {
             product_name: this.state.product_name,
             product_price: this.state.product_price,
             image_url: this.state.image_url
@@ -51,6 +52,8 @@ export default class EditItem extends Component {
             })
         })
     }
+
+    
 
     render() {
         return(
@@ -66,7 +69,7 @@ export default class EditItem extends Component {
                         <h2>Price:</h2>
                         <input type="text" onChange={this.handleChange2} value={this.state.product_price} name='product_price'></input>
                         <button>Cancel</button>
-                        <button onClick={() => this.editItem(this.props.id)}>Save Changes</button>
+                        <button onClick={this.editItem}>Save Changes</button>
                     </div>
                 </section>
             </div>
