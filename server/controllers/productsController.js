@@ -18,9 +18,9 @@ let deleteProduct = (req, res) => {
     const {id} = req.params;
 
     dbInstance.deleteProduct(id)
-    .then(product => {
-        res.status(200).json(product)
-        console.log(product)
+    .then(products => {
+        res.status(200).json(products)
+        console.log(products)
     })
     .catch(err => {
         res.status(500).send({errorMessage: 'Something went wrong -500'})
